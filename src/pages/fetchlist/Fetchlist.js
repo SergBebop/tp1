@@ -26,7 +26,7 @@ const Fetchlist = () => {
 
     const getPokemons = async () => {
         try {
-            dispatch(appActions.loading(true))
+            //dispatch(appActions.loading(true))
             const result = await api.GET(api.pokemons)
             if(result){
                 console.log('poke: ', result)
@@ -36,23 +36,23 @@ const Fetchlist = () => {
         } catch (error) {
             console.log(error)
         } finally {
-                dispatch(appActions.loading(false))
+                //dispatch(appActions.loading(false))
         }
     }
 
     const loadMore = async () => {
         try {
-            dispatch(appActions.loading(true))
+            //dispatch(appActions.loading(true))
             const result = await api.GET(next)
         if(result){
             console.log('poke: ', result.results)
-            setPokemons(prev=>[...prev, ...result.results])
+            setPokemons([...pokemons, ...result.results])
             setNext(result.next)
             }
         } catch (error) {
             console.log(error)
         } finally {
-            dispatch(appActions.loading(false))
+            //dispatch(appActions.loading(false))
         }
     }
 
@@ -94,6 +94,7 @@ const Fetchlist = () => {
         )
         }
     
+
     return (
             <Grid container spacing={3}>
                 <Grid item xs={12}>
