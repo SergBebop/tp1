@@ -170,7 +170,7 @@ const Fetchlist = () => {
 
                     open={open}>
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                {data?data.name:'_'} {/*<Avatar sx={{ width: 32, height: 32 }} src={data.sprites.front_default}>P</Avatar>*/}
+                {data?data.name:'_'} <Avatar sx={{ width: 200, height: 132 }} src={data?data.sprites.front_default:""}>P</Avatar>
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <Accordion sx={{width:'50wv'}}>
@@ -182,12 +182,11 @@ const Fetchlist = () => {
                         <Typography>Habilidades</Typography>
                         </AccordionSummary>  
                         <AccordionDetails>
-                            
-                            {/*{data && data.abilities && data.abilites.map((h,index)=>{
+                            {data && data.abilities && data.abilities.map((h,index)=>(
                                 <Typography>
                                     {h.ability.name}
                                 </Typography>
-                            })}*/}
+                            ))}
                         </AccordionDetails>  
                     </Accordion>
                     <Accordion>
@@ -199,12 +198,11 @@ const Fetchlist = () => {
                         <Typography>Movimientos</Typography>
                         </AccordionSummary>  
                         <AccordionDetails>
-                            
-                            {/*{data && data.moves && data.moves.map((m,index)=>{
+                            {data && data.moves && data.moves.map((m,index)=>(
                                 <Typography>
                                     {m.move.name}
                                 </Typography>
-                            })}*/}
+                            ))}
                         </AccordionDetails>  
                     </Accordion>
                 </DialogContent>
@@ -219,7 +217,7 @@ const Fetchlist = () => {
 export default Fetchlist;
 
 
-function BootstrapDialogTitle(props: DialogTitleProps) {
+function BootstrapDialogTitle(props) {
     const { children, onClose, ...other } = props;
   
     return (
